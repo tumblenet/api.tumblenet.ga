@@ -1,3 +1,5 @@
+const absorb = require('absorb');
+
 const getBlogger = require('./json/blogger.js');
 const getJekyll = require('./json/jekyll.js');
 
@@ -9,7 +11,9 @@ function getBlogs() {
       var tgBlog = JSON.stringify(feed);
       getBlogger("http://doctorbatmanwho.blog.tumblenet.ga", function (feed) {
         var dbwBlog = JSON.stringify(feed);
-        
+
+        var test = absorb(tnBlog, absorb(tgBlog,dbwBlog,true),true);
+
         console.log(test);
       });
     });
