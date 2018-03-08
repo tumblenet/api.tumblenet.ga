@@ -8,4 +8,4 @@ server.listen(port, function () {
   console.log("Server listening on port " + port);
 });
 
-require('./api/blog/blog.js');
+require('./api/blog/blog.js')();

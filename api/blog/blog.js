@@ -3,7 +3,7 @@ const getJekyll = require('./json/jekyll.js');
 
 function getBlogs() {
 
-  getJekyll("http://tumblenet.ga", function (feed) {
+  getJekyll("http://www.tumblenet.ga", function (feed) {
     var tnBlog = feed;
     getBlogger("http://tumblegamer.blog.tumblenet.ga", function (feed) {
       var tgBlog = feed;
