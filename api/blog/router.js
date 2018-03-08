@@ -1,4 +1,5 @@
 const express = require('express');
+const getBlog = require('./blog.js');
 
 var router = express.Router();
 
@@ -9,7 +10,9 @@ posts/yyyy/mm/dd
 */
 
 router.use("/",function (req, res) {
-  res.send("hello");
+  getBlog(function (blog) {
+    res.json(blog.posts);
+  })
 });
 
 module.exports = router;
