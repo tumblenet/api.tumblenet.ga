@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/tumblenet/tumblenet-api#readme",
   "dependencies": {
-    "absorb": "^1.0.1",
     "express": "^4.16.2",
+    "node-extend": "^0.2.0",
     "request": "^2.83.0"
   }
 }
