@@ -10,9 +10,9 @@ posts/yyyy/mm/dd
 */
 
 router.use("/",function (req, res) {
-  getBlog(function (blog) {
+  getBlog(function(blog) {
     res.json(blog.posts);
-  })
+  });
 });
 
 module.exports = router;
