@@ -27,4 +27,4 @@ function getJekyllJson(url) {
   console.log(feed);
 }
 
-module.exports = getBloggerJson;
+module.exports = getJekyllJson;

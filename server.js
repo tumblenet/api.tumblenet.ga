@@ -8,4 +8,4 @@ server.listen(port, function () {
   console.log("Server listening on port " + port);
 });
 
-//require('./api/blog/blogger.js')("http://doctorbatmanwho.blog.tumblenet.ga");
+require('./api/blog/jekyll.js')("http://tumblenet.ga");
