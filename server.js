@@ -7,5 +7,3 @@ var server = http.Server(app);
 server.listen(port, function () {
   console.log("Server listening on port " + port);
 });
-
-require('./api/blog/blog.js')();

@@ -5,7 +5,7 @@ function NoDuplicates(array) {
   return [...new Set(array)];
 }
 
-function getBlogs(callback) {
+function getBlogJson(callback) {
 
   getJekyll("http://www.tumblenet.ga", function (feed) {
     var tnBlog = feed;
@@ -19,11 +19,11 @@ function getBlogs(callback) {
           tags: NoDuplicates(tnBlog.tags.concat(tgBlog.tags.concat(dbwBlog.tags))),
           posts: NoDuplicates(tnBlog.posts.concat(tgBlog.posts.concat(dbwBlog.posts)))
         };
-        //console.log(test);
+        //console.log(fullFeed);
         callback(fullFeed);
       });
     });
   });
 }
 
-module.exports = getBlogs;
+module.exports = getBlogJson;
