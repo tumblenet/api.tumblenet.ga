@@ -5,16 +5,16 @@ function getBloggerJson(url) {
 
   getJSON(feedUrl, function (json) {
     var feed = {
-      categories = [],
-      tags = [],
-      posts = [];
+      categories:[],
+      tags: [],
+      posts: []
     }
 
     json.feed.category.forEach(function (catObj) {
-      console.log(catObj);
+      feed.categories.push(catObj.term);
     });
 
-    //console.log(json);
+    console.log(feed);
   });
 }
 
