@@ -6,11 +6,11 @@ const getJekyll = require('./json/jekyll.js');
 function getBlogs() {
 
   getJekyll("http://www.tumblenet.ga", function (feed) {
-    var tnBlog = JSON.stringify(feed);
+    var tnBlog = feed;
     getBlogger("http://tumblegamer.blog.tumblenet.ga", function (feed) {
-      var tgBlog = JSON.stringify(feed);
+      var tgBlog = feed;
       getBlogger("http://doctorbatmanwho.blog.tumblenet.ga", function (feed) {
-        var dbwBlog = JSON.stringify(feed);
+        var dbwBlog = feed;
 
         var test = absorb(tnBlog, absorb(tgBlog,dbwBlog,true),true);
 
