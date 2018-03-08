@@ -4,12 +4,12 @@ const getJekyll = require('./json/jekyll.js');
 function getBlogs() {
 
   getJekyll("http://www.tumblenet.ga", function (feed) {
-    var tnBlog = feed;
+    var tnBlog = JSON.stringify(feed);
     getBlogger("http://tumblegamer.blog.tumblenet.ga", function (feed) {
-      var tgBlog = feed;
+      var tgBlog = JSON.stringify(feed);
       getBlogger("http://doctorbatmanwho.blog.tumblenet.ga", function (feed) {
-        var dbwBlog = feed;
-        var test = Object.assign(tbBlog,tgBlog,dbwBlog);
+        var dbwBlog = JSON.stringify(feed);
+        
         console.log(test);
       });
     });
