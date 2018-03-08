@@ -27,7 +27,7 @@ function getBloggerJson(url) {
         author: postObj.author[0].name.$t,
         category: postObj.category[0].term,
         date: postObj.published.$t,
-        url: postObj.link[4].href,
+        url: postObj.link[postObj.link.length-1].href,
       }
 
       feed.posts.push(post);
