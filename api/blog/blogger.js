@@ -14,19 +14,23 @@ function getBloggerJson(url) {
 
     //Sort Categories
     blog.category.forEach(function (categoryObj) {
-      feed.categories.push(categoryObj.term);
+      var category = categoryObj.term
+
+      feed.categories.push(category);
     });
 
     //posts
     blog.entry.forEach(function (postObj) {
       var post = {
         title: postObj.title.$t,
-        content: "",
-        author: "",
-        category: "",
-        date: "",
-        url: "",
+        content: postObj.content.$t,
+        author: postObj.author[0].name.$t,
+        category: postObj.category[0].term,
+        date: postObj.published.$t,
+        url: postObj.link[4].href,
       }
+
+      feed.posts.push(post);
     })
 
     console.log(feed);
