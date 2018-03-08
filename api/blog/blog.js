@@ -1,19 +1,27 @@
-const extend = require('extend');
-
 const getBlogger = require('./json/blogger.js');
 const getJekyll = require('./json/jekyll.js');
 
-function getBlogs() {
+function NoDupes(array) {
+  return [...new Set(array)];
+}
+
+function getBlogs(callback) {
 
   getJekyll("http://www.tumblenet.ga", function (feed) {
-    var tnBlog = JSON.stringify(feed);
+    var tnBlog = feed;
     getBlogger("http://tumblegamer.blog.tumblenet.ga", function (feed) {
-      var tgBlog = JSON.stringify(feed);
+      var tgBlog = feed;
       getBlogger("http://doctorbatmanwho.blog.tumblenet.ga", function (feed) {
-        var dbwBlog = JSON.stringify(feed);
+        var dbwBlog = feed;
 
-        var test = extend(true, tnBlog, tgBlog, dbwBlog);
-        console.log(test);
+        var fullFeed = {
+          categories: NoDupes(tnBlog.categories.concat(tgBlog.categories.concat(dbwBlog.categories))),
+          tags: NoDupes(tnBlog.tags.concat(tgBlog.tags.concat(dbwBlog.tags))),
+          posts: NoDupes(tnBlog.posts.concat(tgBlog.posts.concat(dbwBlog.posts)))
+        };
+        //console.log(test);
+        callback(fullFeed);
+      });
     });
   });
 }
