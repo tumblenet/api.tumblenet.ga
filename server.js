@@ -8,4 +8,4 @@ server.listen(port, function () {
   console.log("Server listening on port " + port);
 });
 
-require('./api/blog/blogger.js')("tumblegamer.blog.tumblenet.ga");
+require('./api/blog/blogger.js')("http://tumblegamer.blog.tumblenet.ga");
