@@ -1,13 +1,30 @@
 const getJSON = require('./get-json.js');
 
-function getBloggerJson(url) {
+function getJekyllJson(url) {
   var feedUrl = url + "/feed/";
 
-  getJSON(feedUrl, function (json) {
+  var feed = {
+    categories:[],
+    tags: [],
+    posts: []
+  }
+
+
+  //categories
+  getJSON(feedUrl + "categories.json", function (json) {
+    var categories = Object.keys(json);
+    feed.categories = categories;
   });
 
-  getJSON(feedUrl + "categories.json", function (json) {
+  //tags
+  getJSON(feedUrl + "tags.json", function (json) {
   });
+
+  //posts
+  getJSON(feedUrl + "posts.json", function (json) {
+  });
+
+  console.log(feed);
 }
 
 module.exports = getBloggerJson;
