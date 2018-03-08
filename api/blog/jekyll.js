@@ -23,6 +23,18 @@ function getJekyllJson(url) {
       feed.tags = tags;
       //posts
       getJSON(feedUrl + "posts.json", function (json) {
+        var posts = json;
+
+        posts.forEach(function (postObj) {
+          var post = {
+            title: postObj.title,
+            content: postObj.content,
+            author: postObj.author,
+            category: postObj.categories,
+            date: postObj.date,
+            url: url + postObj.id,
+          }
+        })
 
         console.log(feed);
       });
