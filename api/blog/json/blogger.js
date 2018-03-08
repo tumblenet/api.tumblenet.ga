@@ -1,6 +1,6 @@
 const getJSON = require('./get-json.js');
 
-function getBloggerJson(url) {
+function getBloggerJson(url, callback) {
   var feedUrl = url + "/feeds/posts/default?alt=json";
 
   getJSON(feedUrl, function (json) {
@@ -33,7 +33,8 @@ function getBloggerJson(url) {
       feed.posts.push(post);
     })
 
-    console.log(feed);
+    //console.log(feed);
+    callback(feed);
   });
 }
 

@@ -1,6 +1,6 @@
 const getJSON = require('./get-json.js');
 
-function getJekyllJson(url) {
+function getJekyllJson(url, callback) {
   var feedUrl = url + "/feed/";
 
 
@@ -38,7 +38,8 @@ function getJekyllJson(url) {
           feed.posts.push(post);
         })
 
-        console.log(feed);
+        //console.log(feed);
+        callback(feed);
       });
     });
   });
