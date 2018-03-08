@@ -23,11 +23,11 @@ function getBloggerJson(url) {
     blog.entry.forEach(function (postObj) {
       var post = {
         title: postObj.title.$t,
-        content: postObj.content.$t,
         author: postObj.author[0].name.$t,
         category: postObj.category[0].term,
         date: postObj.published.$t,
         url: postObj.link[postObj.link.length-1].href,
+        content: postObj.content.$t
       }
 
       feed.posts.push(post);

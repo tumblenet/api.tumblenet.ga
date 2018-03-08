@@ -28,12 +28,14 @@ function getJekyllJson(url) {
         posts.forEach(function (postObj) {
           var post = {
             title: postObj.title,
-            content: postObj.content,
             author: postObj.author,
             category: postObj.categories,
             date: postObj.date,
             url: url + postObj.id,
+            content: postObj.content
           }
+
+          feed.posts.push(post);
         })
 
         console.log(feed);
