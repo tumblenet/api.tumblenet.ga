@@ -11,6 +11,9 @@ function getBlogs() {
       var tgBlog = JSON.stringify(feed);
       getBlogger("http://doctorbatmanwho.blog.tumblenet.ga", function (feed) {
         var dbwBlog = JSON.stringify(feed);
+
+        var test = extend(true, tnBlog, tgBlog, dbwBlog);
+        console.log(test);
     });
   });
 }
