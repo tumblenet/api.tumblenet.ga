@@ -30,7 +30,8 @@ function getJekyllJson(url, callback) {
             title: postObj.title,
             author: postObj.author,
             category: postObj.categories,
-            date: postObj.date,
+            tags: postObj.tags,
+            date: new Date(postObj.date),
             url: url + postObj.id,
             content: postObj.content
           }

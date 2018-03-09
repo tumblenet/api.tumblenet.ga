@@ -25,7 +25,8 @@ function getBloggerJson(url, callback) {
         title: postObj.title.$t,
         author: postObj.author[0].name.$t,
         category: postObj.category[0].term,
-        date: postObj.published.$t,
+        tags: [],
+        date: new Date(postObj.published.$t),
         url: postObj.link[postObj.link.length-1].href,
         content: postObj.content.$t
       }
