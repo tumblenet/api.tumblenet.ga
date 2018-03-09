@@ -17,7 +17,7 @@ var options = {
 }
 
 getBlog(function (blog) {
-  repo.writeFile('master', '_data/blog.js', 'blog, 'Update Blog feed', options,
+  repo.writeFile('master', '_data/blog.js', blog, 'Update Blog feed', options,
   function(err) {
 
   });
