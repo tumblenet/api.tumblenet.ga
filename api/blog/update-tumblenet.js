@@ -18,7 +18,7 @@ var options = {
 
 function UpdateBlog(callback) {
   getBlog(function (blog) {
-    repo.writeFile('master', '_data/blog.js', JSON.stringify(blog), 'Update Blog feed', options,
+    repo.writeFile('master', '_data/blog.json', JSON.stringify(blog), 'Update Blog feed', options,
     function(err) {
       callback(err);
     });
