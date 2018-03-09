@@ -4,6 +4,8 @@ var app = require('./app.js');
 var port = process.env.PORT || 3000;
 var server = http.Server(app);
 
-server.listen(port, function () {
+function listenAction() {
   console.log("Server listening on port " + port);
-});
+}
+
+server.listen(port, listenAction);
