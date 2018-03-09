@@ -16,9 +16,11 @@ var options = {
   encode: true // Whether to base64 encode the file. (default: true)
 }
 
-getBlog(function (blog) {
-  repo.writeFile('master', '_data/blog.js', blog, 'Update Blog feed', options,
-  function(err) {
-
+function UpdateBlog(callback) {
+  getBlog(function (blog) {
+    repo.writeFile('master', '_data/blog.js', JSON.stringify(blog), 'Update Blog feed', options,
+    function(err) {
+      callback(err);
+    });
   });
-});
+}
