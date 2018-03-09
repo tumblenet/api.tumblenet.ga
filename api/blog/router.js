@@ -10,8 +10,10 @@ tags
 posts/yyyy/mm/dd
 */
 
-router.get("/update",function (error) {
-  res.json(error);
+router.get("/update",function (req, res) {
+  updateBlog(function (error) {
+    res.json(error);
+  });
 });
 
 router.get("/tags/:tag",function (req, res) {
