@@ -11,7 +11,7 @@ posts/yyyy/mm/dd
 
 router.use("/tags/:tag",function (req, res) {
   getBlog(function(blog) {
-    res.json(blog.posts.filter(post => post.tags.includes(req.param.tags)));
+    res.json(blog.posts.filter(post => post.tags.includes(req.param.tag)));
   });
 });
 
