@@ -2,7 +2,7 @@ const Github = require('github-api');
 const path = require('path');
 
 var github = new Github({
-  token: require('../../config/oauth.js').token || process.env.OAUTH_TOKEN,
+  token: require('./config/oauth.js').token || process.env.OAUTH_TOKEN,
   auth: "oauth"
 });
 
