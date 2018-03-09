@@ -41,18 +41,19 @@ router.get("/categories",function (req, res) {
 
 router.get("/:year/:month?/:day?", function (req, res) {
   var query = req.params;
-  res.send(query);
+  //res.send(query);
   getBlog(function (blog) {
-    //res.json(
-      blog.posts.filter(function (post) {
-      var testDate = post.date;
-      testDate.setDate(query.day);
-      testDate.setMonth(query.month);
-      testDate.setFullYear(query.year);
-      console.log(testDate.toJSON());
-      return true;
-    })
-  //);
+    res.json(blog.posts.filter(function (post) {
+      var testDate = new Date(post.date);
+      testDate.setDate(query.day || testDate.getDate());
+      testDate.setMonth(query.month !== undefined ? query.month -1 : testDate.getMonth());
+      testDate.setYear(query.year || testDate.getFullYear());
+
+      var include = post.date.getTime() == testDate.getTime();
+      console.log(testDate.toDateString() + " - " + post.date.toDateString() + ": " + include);
+
+      return include;
+    }));
   });
 });
 
