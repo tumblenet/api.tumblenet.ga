@@ -5,6 +5,10 @@ function NoDuplicates(array) {
   return [...new Set(array)];
 }
 
+function SortByDate(a,b) {
+  return b.date.getTime() - a.date.getTime();
+}
+
 function getBlogJson(callback) {
 
   getJekyll("http://www.tumblenet.ga", function (feed) {
@@ -17,8 +21,9 @@ function getBlogJson(callback) {
         var fullFeed = {
           categories: NoDuplicates(tnBlog.categories.concat(tgBlog.categories.concat(dbwBlog.categories))),
           tags: NoDuplicates(tnBlog.tags.concat(tgBlog.tags.concat(dbwBlog.tags))),
-          posts: NoDuplicates(tnBlog.posts.concat(tgBlog.posts.concat(dbwBlog.posts)))
+          posts: NoDuplicates(tnBlog.posts.concat(tgBlog.posts.concat(dbwBlog.posts))).sort(SortByDate)
         };
+
         //console.log(fullFeed);
         callback(fullFeed);
       });
