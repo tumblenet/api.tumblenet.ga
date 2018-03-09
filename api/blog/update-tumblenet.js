@@ -3,7 +3,7 @@ const path = require('path');
 const getBlog = require('./blog.js');
 
 var github = new Github({
-  token: require('./config/oauth.js').token || process.env.OAUTH_TOKEN,
+  token: process.env.OAUTH_TOKEN || require('./config/oauth.js').token
   auth: "oauth"
 });
 
