@@ -24,3 +24,5 @@ function UpdateBlog(callback) {
     });
   });
 }
+
+module.exports = UpdateBlog;
