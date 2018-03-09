@@ -16,12 +16,12 @@ function getBlogJson(callback) {
     getBlogger("http://tumblegamer.blog.tumblenet.ga", function (feed) {
       var tgBlog = feed;
       tgBlog.posts.forEach(function (post) {
-        post.author = "tumblegamer"
+        post.author = "tumblegamer";
       })
       getBlogger("http://doctorbatmanwho.blog.tumblenet.ga", function (feed) {
         var dbwBlog = feed;
         dbwBlog.posts.forEach(function (post) {
-          post.author = "doctorbatmanwho"
+          post.author = "doctorbatmanwho";
         })
 
         var fullFeed = {
