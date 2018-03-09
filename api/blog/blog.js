@@ -15,8 +15,14 @@ function getBlogJson(callback) {
     var tnBlog = feed;
     getBlogger("http://tumblegamer.blog.tumblenet.ga", function (feed) {
       var tgBlog = feed;
+      tgBlog.posts.forEach(function (post) {
+        post.author = "tumblegamer";
+      })
       getBlogger("http://doctorbatmanwho.blog.tumblenet.ga", function (feed) {
         var dbwBlog = feed;
+        dbwBlog.posts.forEach(function (post) {
+          post.author = "doctorbatmanwho";
+        })
 
         var fullFeed = {
           categories: NoDuplicates(tnBlog.categories.concat(tgBlog.categories.concat(dbwBlog.categories))),
