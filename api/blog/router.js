@@ -9,21 +9,23 @@ tags
 posts/yyyy/mm/dd
 */
 
+
 router.use("/tags/:tag",function (req, res) {
   getBlog(function(blog) {
-    res.json(blog.posts.filter(post => post.tags.includes(req.param.tag)));
-  });
-});
-
-router.use("/categories",function (req, res) {
-  getBlog(function(blog) {
-    res.json(blog.categories);
+    res.json(blog.posts.filter(post => post.tags.includes(req.params.tag)));
   });
 });
 
 router.use("/tags",function (req, res) {
   getBlog(function(blog) {
     res.json(blog.tags);
+  });
+});
+
+
+router.use("/categories",function (req, res) {
+  getBlog(function(blog) {
+    res.json(blog.categories);
   });
 });
 
