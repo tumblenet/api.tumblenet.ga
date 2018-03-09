@@ -10,5 +10,3 @@ function listenAction() {
 }
 
 //server.listen(port, listenAction);
-
-updateTumbleNet();
