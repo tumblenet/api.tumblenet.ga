@@ -17,8 +17,9 @@
   },
   "homepage": "https://github.com/tumblenet/tumblenet-api#readme",
   "dependencies": {
-    "@octokit/rest": "^15.1.9",
     "express": "^4.16.2",
-    "request": "^2.83.0"
+    "nodegit": "^0.21.1",
+    "request": "^2.83.0",
+    "rimraf": "^2.6.2"
   }
 }
