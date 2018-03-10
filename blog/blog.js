@@ -1,6 +1,9 @@
-const getBlogger = require('./json/blogger.js');
-const getJekyll = require('./json/jekyll.js');
-const getWix = require('./xml/wix.js');
+const retrivers = require('../retrivers');
+const sites = require('./sites');
+
+var getJekyll = new sites.Jekyll(retrivers.json);
+var getBlogger = new sites.Blogger(retrivers.json);
+var getWix = new sites.Wix(retrivers.xml);
 
 function noDuplicates(array) {
   return [...new Set(array)];

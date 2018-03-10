@@ -9,11 +9,6 @@ tags
 posts/yyyy/mm/dd
 */
 
-router.get("/wix", function (req,res) {
-  require('./xml/wix')("http://tumble1999.wixsite.com/tumblegamer", function (feed) {
-    res.json(feed);
-  });
-});
 
 router.get("/tags/:tag",function (req, res) {
   getBlog(function(blog) {

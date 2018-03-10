@@ -1,28 +1,29 @@
-const getJSON = require('./getJson.js');
+function Jekyll(retriever) {
+  const this.retrieve = retriever;
+}
 
-function getJekyllJson(url, callback) {
+Jekyll.prototype.getJson = function(url, callback) {
   var feedUrl = url + "/feed/";
-
 
   var feed = {
     categories:[],
     tags: [],
     posts: []
   };
-
+  var _this = this
 
   //categories
-  getJSON(feedUrl + "categories.json", function (json) {
+  this.retrieve(feedUrl + "categories.json", function (json) {
     //console.log(json);
     var categories = Object.keys(json);
     feed.categories = categories;
 
     //tags
-    getJSON(feedUrl + "tags.json", function (json) {
+    _this.retrieve(feedUrl + "tags.json", function (json) {
       var tags = Object.keys(json);
       feed.tags = tags;
       //posts
-      getJSON(feedUrl + "posts.json", function (json) {
+      _this.retrieve(feedUrl + "posts.json", function (json) {
         var posts = json;
 
         posts.forEach(function (postObj) {
@@ -47,4 +48,4 @@ function getJekyllJson(url, callback) {
   });
 }
 
-module.exports = getJekyllJson;
+module.exports = Jekyll;
