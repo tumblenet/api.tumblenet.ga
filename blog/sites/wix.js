@@ -1,5 +1,5 @@
 function Wix(retriever) {
-  const this.retrieve = retriever;
+  this.retrieve = retriever;
 }
 
 Wix.prototype.getJson = function(url, callback) {

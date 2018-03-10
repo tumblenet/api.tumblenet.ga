@@ -1,5 +1,5 @@
 function Blogger(retriever) {
-  const this.retrieve = retriever;
+  this.retrieve = retriever;
 }
 
 Blogger.prototype.getJson = function (url, callback) {

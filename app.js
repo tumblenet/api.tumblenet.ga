@@ -1,7 +1,7 @@
 const express = require('express');
 
 //routers
-const apiRouter = require('./api/router.js');
+const apiRouter = require('./api.js');
 
 var app = express();
 

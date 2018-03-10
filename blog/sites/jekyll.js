@@ -1,5 +1,5 @@
 function Jekyll(retriever) {
-  const this.retrieve = retriever;
+  this.retrieve = retriever;
 }
 
 Jekyll.prototype.getJson = function(url, callback) {

@@ -1,4 +1,4 @@
-const updateTumblenet = require('./updateTumblenet.js');
+const updateTumblenet = require('./blog/updateTumblenet.js');
 
 var updateloop = [];
 
