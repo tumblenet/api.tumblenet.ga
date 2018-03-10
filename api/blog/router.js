@@ -1,6 +1,6 @@
 const express = require('express');
 const getBlog = require('./blog.js');
-const updateBlog = require('./update-tumblenet.js');
+const updateBlog = require('./updateTumblenet.js');
 
 var router = express.Router();
 
