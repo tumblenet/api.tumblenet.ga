@@ -1,12 +1,11 @@
 const Github = require('github-api');
 const path = require('path');
-const rootRequire = require('./rootRequire.ks');
-const getBlog = rootRequire('./api/blog/blog.js');
+const getBlog = require('./blog.js');
 
 var lastBlog = {};
 
 var github = new Github({
-  token: process.env.OAUTH_TOKEN || require('./config/oauth.js').token,
+  token: process.env.OAUTH_TOKEN || require('./config/githubOauth.js').token,
   auth: "oauth"
 });
 
