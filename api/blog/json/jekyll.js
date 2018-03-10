@@ -1,4 +1,4 @@
-const getJSON = require('./get-json.js');
+const getJSON = require('./getJson.js');
 
 function getJekyllJson(url, callback) {
   var feedUrl = url + "/feed/";
