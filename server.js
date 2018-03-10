@@ -1,5 +1,5 @@
 const http = require('http');
-const autoUpdate = require('./autoUpdate.js');
+const autoUpdate = require('./autoUpdate/autoUpdate.js');
 
 var app = require('./app.js');
 var port = process.env.PORT || 3000;

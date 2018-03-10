@@ -1,6 +1,5 @@
 const express = require('express');
 const getBlog = require('./blog.js');
-const updateBlog = require('./updateTumblenet.js');
 
 var router = express.Router();
 
@@ -13,12 +12,6 @@ posts/yyyy/mm/dd
 router.get("/wix", function (req,res) {
   require('./xml/wix')("http://tumble1999.wixsite.com/tumblegamer", function (feed) {
     res.json(feed);
-  });
-});
-
-router.get("/update",function (req, res) {
-  updateBlog(function (error) {
-    res.json(error || { message: "http://tumblenet.ga/blog was updated"});
   });
 });
 

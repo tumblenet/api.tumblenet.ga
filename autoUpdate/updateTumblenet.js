@@ -1,6 +1,7 @@
 const Github = require('github-api');
 const path = require('path');
-const getBlog = require('./blog.js');
+const rootRequire = require('./rootRequire.ks');
+const getBlog = rootRequire('./api/blog/blog.js');
 
 var lastBlog = {};
 
