@@ -1,4 +1,4 @@
-const getJSON = require('./get-json.js');
+const getJSON = require('./getJson.js');
 
 function getJekyllJson(url, callback) {
   var feedUrl = url + "/feed/";
@@ -32,6 +32,7 @@ function getJekyllJson(url, callback) {
             category: postObj.categories,
             tags: postObj.tags,
             date: new Date(postObj.date),
+            excerpt: postObj.excerpt,
             url: url + postObj.id,
             content: postObj.content
           }

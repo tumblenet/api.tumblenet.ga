@@ -1,4 +1,4 @@
-const getJSON = require('./get-json.js');
+const getJSON = require('./getJson.js');
 
 function getBloggerJson(url, callback) {
   var feedUrl = url + "/feeds/posts/default?alt=json";
