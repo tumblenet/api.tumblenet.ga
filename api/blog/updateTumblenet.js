@@ -2,6 +2,8 @@ const Github = require('github-api');
 const path = require('path');
 const getBlog = require('./blog.js');
 
+var lastBlog = {};
+
 var github = new Github({
   token: process.env.OAUTH_TOKEN || require('./config/oauth.js').token,
   auth: "oauth"
@@ -16,12 +18,20 @@ var options = {
   encode: true // Whether to base64 encode the file. (default: true)
 }
 
-function UpdateBlog(callback) {
+function UpdateBlog(cb) {
+  var callback = cb || function (err) {
+    console.log(err);
+  }
   getBlog(function (blog) {
-    repo.writeFile('master', '_data/blog.json', JSON.stringify(blog), 'Update Blog feed', options,
-    function(err) {
-      callback(err);
-    });
+    if (JSON.stringify(lastBlog) == JSON.stringify(blog)) {
+      callback({ message: "http://tumblenet.ga/blog is already up to date"})
+    } else {
+      lastBlog = blog;
+      repo.writeFile('master', '_data/blog.json', JSON.stringify(blog), 'Update Blog feed', options,
+      function(err) {
+        callback(err || { message: "http://tumblenet.ga/blog was updated"});
+      });
+    }
   });
 }
 
