@@ -1,7 +1,8 @@
 const getBlogger = require('./json/blogger.js');
 const getJekyll = require('./json/jekyll.js');
+const getWix = require('./xml/wix.js');
 
-function NoDuplicates(array) {
+function noDuplicates(array) {
   return [...new Set(array)];
 }
 
@@ -25,13 +26,14 @@ function getBlogJson(callback) {
         })
 
         var fullFeed = {
-          categories: NoDuplicates(tnBlog.categories.concat(tgBlog.categories.concat(dbwBlog.categories))),
-          tags: NoDuplicates(tnBlog.tags.concat(tgBlog.tags.concat(dbwBlog.tags))),
-          posts: NoDuplicates(tnBlog.posts.concat(tgBlog.posts.concat(dbwBlog.posts))).sort(SortByDate)
+          categories: noDuplicates(tnBlog.categories.concat(tgBlog.categories.concat(dbwBlog.categories))),
+          tags: noDuplicates(tnBlog.tags.concat(tgBlog.tags.concat(dbwBlog.tags))),
+          posts: noDuplicates(tnBlog.posts.concat(tgBlog.posts.concat(dbwBlog.posts))).sort(SortByDate)
         };
 
         //console.log(fullFeed);
         callback(fullFeed);
+        getWix("")
       });
     });
   });
