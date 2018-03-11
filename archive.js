@@ -1,7 +1,7 @@
 const retrievers = require('./retrievers');
-const Wayback = require('./wayback.js');
+const Wayback = require('./archive/wayback.js');
 
-var testWayback = new Wayback(retrievers.xml);
+var testWayback = new Wayback(retrievers.xml,retrievers.get);
 var sitesToArchive = [
   "archive.tumblenet.ga",//
   "blog.tumblenet.ga",
@@ -27,6 +27,10 @@ var sitesToArchive = [
   "www.tumblenet.ga",//
 ]
 
-testWayback.savePageList(sitesToArchive,function () {
+function archive() {
+  testWayback.savePageList(sitesToArchive,function () {
+    testWayback.archive();
+  });
+}
 
-});
+module.exports = archive;

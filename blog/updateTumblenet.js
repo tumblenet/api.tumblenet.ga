@@ -24,12 +24,12 @@ function UpdateBlog(cb) {
   }
   getBlog(function (blog) {
     if (JSON.stringify(lastBlog) == JSON.stringify(blog)) {
-      callback({ message: "http://tumblenet.ga/blog is already up to date"})
+      callback("http://tumblenet.ga/blog is already up to date")
     } else {
       lastBlog = blog;
       repo.writeFile('master', '_data/blog.json', JSON.stringify(blog), 'Update Blog feed', options,
       function(err) {
-        callback(err || { message: "http://tumblenet.ga/blog was updated"});
+        callback(err ? "There was an error in updateing http://tumblenet.ga/blog" : "http://tumblenet.ga/blog was updated");
       });
     }
   });
