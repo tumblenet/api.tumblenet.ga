@@ -13,7 +13,7 @@ var github = new Github({
 var repo = github.getRepo("tumblenet", "beta.tumblenet.cu.cc");
 
 var options = {
-  author: {name: 'TumbleNet API', email: 'admin@tumblenet.ga'},
+  author: {name: 'TumbleNet API', email: 'api@tumblenet.ga'},
   committer: {name: 'TumbleNet Admin', email: 'admin@tumblenet.ga'},
   encode: true // Whether to base64 encode the file. (default: true)
 }
