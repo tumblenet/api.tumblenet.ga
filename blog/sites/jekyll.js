@@ -10,7 +10,7 @@ Jekyll.prototype.getJson = function(url, callback) {
     tags: [],
     posts: []
   };
-  var _this = this
+  var _this = this;
 
   //categories
   this.retrieve(feedUrl + "categories.json", function (json) {

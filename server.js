@@ -11,4 +11,4 @@ function listenAction() {
 
 server.listen(port, listenAction);
 
-autoUpdate.start(1000*60);
+autoUpdate.start(100);

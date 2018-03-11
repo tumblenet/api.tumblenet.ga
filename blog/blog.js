@@ -1,9 +1,9 @@
-const retrivers = require('../retrivers');
+const retrievers = require('../retrievers');
 const sites = require('./sites');
 
-var getJekyll = new sites.Jekyll(retrivers.json);
-var getBlogger = new sites.Blogger(retrivers.json);
-var getWix = new sites.Wix(retrivers.xml);
+var getJekyll = new sites.Jekyll(retrievers.json).getJson;
+var getBlogger = new sites.Blogger(retrievers.json).getJson;
+var getWix = new sites.Wix(retrievers.xml).getJson;
 
 function noDuplicates(array) {
   return [...new Set(array)];
