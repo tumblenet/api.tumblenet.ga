@@ -1,11 +1,10 @@
 const request = require('request');
 
-function getJSON(url, callback) {
+function getGet(url, callback) {
   //var url = "https://www.tumblenet.ga/feed/categories.json";
 
   request({
     url: url,
-    json: true,
     followAllRedirects: true
   }, function (error, response, body) {
 
@@ -16,4 +15,4 @@ function getJSON(url, callback) {
   });
 }
 
-module.exports = getJSON;
+module.exports = getGet;
