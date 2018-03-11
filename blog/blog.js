@@ -1,9 +1,9 @@
 const retrievers = require('../retrievers');
 const sites = require('./sites');
 
-var getJekyll = new sites.Jekyll(retrievers.json).getJson;
-var getBlogger = new sites.Blogger(retrievers.json).getJson;
-var getWix = new sites.Wix(retrievers.xml).getJson;
+var jekyll = new sites.Jekyll(retrievers.json);
+var blogger = new sites.Blogger(retrievers.json);
+var wix = new sites.Wix(retrievers.xml);
 
 function noDuplicates(array) {
   return [...new Set(array)];
@@ -37,25 +37,25 @@ function getBlogJson(callback) {
     posts: []
   };
 
-  getJekyll("http://www.tumblenet.ga", function (feed) {
+  jekyll.getJson("http://www.tumblenet.ga", function (feed) {
     var tnBlog = feed;
     fullFeed = AddBlog(fullFeed, tnBlog);
 
-    getBlogger("http://tumblegamer.blog.tumblenet.ga", function (feed) {
+    blogger.getJson("http://tumblegamer.blog.tumblenet.ga", function (feed) {
       var tgBlog = feed;
       tgBlog.posts.forEach(function (post) {
         post.author = "tumblegamer";
       });
       fullFeed = AddBlog(fullFeed, tgBlog);
 
-      getBlogger("http://doctorbatmanwho.blog.tumblenet.ga", function (feed) {
+      blogger.getJson("http://doctorbatmanwho.blog.tumblenet.ga", function (feed) {
         var dbwBlog = feed;
         dbwBlog.posts.forEach(function (post) {
           post.author = "doctorbatmanwho";
         });
         fullFeed = AddBlog(fullFeed, dbwBlog)
 
-        getWix("http://tumble1999.wixsite.com/tumblegamer", function (feed) {
+        wix.getJson("http://tumble1999.wixsite.com/tumblegamer", function (feed) {
           var oldTgBlog = feed
           fullFeed = AddBlog(fullFeed, oldTgBlog);
           fullFeed = SortBlog(fullFeed);
