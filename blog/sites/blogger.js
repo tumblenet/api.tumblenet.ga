@@ -1,9 +1,11 @@
-const getJSON = require('./getJson.js');
+function Blogger(retriever) {
+  this.retrieve = retriever;
+}
 
-function getBloggerJson(url, callback) {
+Blogger.prototype.getJson = function (url, callback) {
   var feedUrl = url + "/feeds/posts/default?alt=json";
 
-  getJSON(feedUrl, function (json) {
+  this.retrieve(feedUrl, function (json) {
     var blog = json.feed;
 
     var feed = {
@@ -40,4 +42,4 @@ function getBloggerJson(url, callback) {
   });
 }
 
-module.exports = getBloggerJson;
+module.exports = Blogger;

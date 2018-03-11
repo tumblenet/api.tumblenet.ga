@@ -1,13 +1,11 @@
-const getXML = require('./getXml.js');
+function Wix(retriever) {
+  this.retrieve = retriever;
+}
 
-function getWixJson(url, callback) {
-  //get the url of the blog
-  //var url = "http://tumble1999.wixsite.com/tumblegamer";
-
-  //add the path to the xml file on the end
+Wix.prototype.getJson = function(url, callback) {
   var feedUrl = url + "/feed.xml";
 
-  getXML(feedUrl, function (xml) {
+  this.retrieve(feedUrl, function (xml) {
     //get the blog feed out of the xml
     var blog = xml.rss.channel[0].item;
 
@@ -41,4 +39,4 @@ function getWixJson(url, callback) {
   });
 }
 
-module.exports = getWixJson;
+module.exports = Wix;
