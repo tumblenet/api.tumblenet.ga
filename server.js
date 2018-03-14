@@ -1,3 +1,5 @@
+require('./log.js');
+
 const http = require('http');
 const autoUpdate = require('./autoUpdate.js');
 
