@@ -5,6 +5,10 @@ const apiRouter = require('./api.js');
 
 var app = express();
 
+app.use('/log', function (req,res,next) {
+  res.sendFile(__dirname + '/log.txt');
+});
+
 
 app.use('/api',apiRouter);
 
