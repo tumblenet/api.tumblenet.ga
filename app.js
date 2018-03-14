@@ -7,7 +7,7 @@ var app = express();
 
 console.log("<script>setTimeout(location.reload,3000)</script>");
 app.get('/log', function (req,res,next) {
-  res.sendFile(__dirname + '/log.txt');
+  res.sendFile(__dirname + '/log.html');
 });
 
 app.use('/api',apiRouter);
