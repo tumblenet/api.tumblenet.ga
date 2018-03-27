@@ -8,6 +8,10 @@ const apiRouter = require('./api.js');
 
 var app = express();
 
+console.log("<script>window.setTimeout(function(){location.reload()},1000)</script>");
+app.get('/log', function (req,res,next) {
+  res.sendFile(__dirname + '/log.html');
+});
 
 app.use('/api',apiRouter);
 

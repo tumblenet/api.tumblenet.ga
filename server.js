@@ -1,3 +1,5 @@
+require('./log.js');
+
 const http = require('http');
 const autoUpdate = require('./autoUpdate.js');
 
@@ -11,4 +13,4 @@ function listenAction() {
 
 server.listen(port, listenAction);
 
-autoUpdate.start(10*1000);
+autoUpdate.start(process.env.INTERVAL||1000);
