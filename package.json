@@ -20,6 +20,7 @@
     "express": "^4.16.2",
     "github-api": "^3.0.0",
     "request": "^2.83.0",
-    "xml2js": "^0.4.19"
+    "xml2js": "^0.4.19",
+    "netlify-cms-github-oauth-provider": "tumblenet/netlify-cms-github-oauth-provider"
   }
 }
