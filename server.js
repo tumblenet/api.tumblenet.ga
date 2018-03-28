@@ -1,8 +1,7 @@
 const http = require('http');
 
 function setupServer(app, port=3000) {
-  var app = app;
-  var port = process.env.PORT || port;
+  port = process.env.PORT || port;
   var server = http.Server(app);
 
   server.listen(port, function listenAction() {
