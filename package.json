@@ -1,6 +1,6 @@
 {
   "name": "tumblenet-api",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "TumbleNet API",
   "main": "index.js",
   "scripts": {
