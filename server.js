@@ -1,16 +1,14 @@
-require('./log.js');
-
 const http = require('http');
-const autoUpdate = require('./autoUpdate.js');
 
-var app = require('./app.js');
-var port = process.env.PORT || 3000;
-var server = http.Server(app);
+function setupServer(app, port=3000) {
+  var app = app;
+  var port = process.env.PORT || port;
+  var server = http.Server(app);
 
-function listenAction() {
-  console.log("Server listening on port " + port);
+  server.listen(port, function listenAction() {
+    console.log("Server listening on port " + port);
+  });
+  return server;
 }
 
-server.listen(port, listenAction);
-
-autoUpdate.start(process.env.INTERVAL||1000);
+module.exports = setupServer;

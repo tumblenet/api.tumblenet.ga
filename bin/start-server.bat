@@ -1,5 +1,5 @@
 @echo off
 title Node Server
 cd..
-start /wait npm install
+start /wait npm i
 nodemon
