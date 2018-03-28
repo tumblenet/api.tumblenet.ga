@@ -16,7 +16,7 @@ app.get('/log', function (req,res,next) {
 
 app.use('/api',apiRouter);
 
-app.use('/netlify', netlifyCmsGithubOauthProvider);
+app.use(netlifyCmsGithubOauthProvider);
 
 app.use(function (req, res) {
   res.send("hello world");
