@@ -44,10 +44,10 @@ function getBlogJson(callback) {
         var tcBlog = feed;
         tcBlog.posts.forEach(function (post) {
           if(post.author=="tg") {
-            post.author = tumblegamer;
+            post.author = "tumblegamer";
           }
          if(post.author=="dbw") {
-            post.author = doctorbatmanwho;
+            post.author = "doctorbatmanwho";
           }
         });
         fullFeed = AddBlog(fullFeed, tcBlog);
