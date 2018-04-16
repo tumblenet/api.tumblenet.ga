@@ -24,6 +24,7 @@ var sitesToArchive = [
   "tumblegamer.github.tumblenet.ga",
   "en.tumblenet.shoutwiki.com",
   //"wiki.tumblenet.ga",
+  "tumblecraft.tumblenet.ga",
   "www.tumblenet.ga",//
 ]
 
