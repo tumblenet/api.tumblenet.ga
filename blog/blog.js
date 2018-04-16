@@ -42,6 +42,14 @@ function getBlogJson(callback) {
     fullFeed = AddBlog(fullFeed, tnBlog);
     jekyll.getJson("http://tumblecraft.tumblenet.ga", function (feed) {
         var tcBlog = feed;
+        tcBlog.posts.forEach(function (post) {
+          if(post.author=="tg") {
+            post.author = tumblegamer;
+          }
+         if(post.author=="dbw") {
+            post.author = doctorbatmanwho;
+          }
+        });
         fullFeed = AddBlog(fullFeed, tcBlog);
 
       blogger.getJson("http://tumblegamer.blog.tumblenet.ga", function (feed) {
