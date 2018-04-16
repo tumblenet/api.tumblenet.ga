@@ -3,6 +3,7 @@ const Wayback = require('./archive/wayback.js');
 
 var testWayback = new Wayback(retrievers.xml,retrievers.get);
 var sitesToArchive = [
+  "tumblecraft.tumblenet.ga",
   "archive.tumblenet.ga",//
   "blog.tumblenet.ga",
   "css.tumblenet.ga",//
@@ -24,7 +25,6 @@ var sitesToArchive = [
   "tumblegamer.github.tumblenet.ga",
   "en.tumblenet.shoutwiki.com",
   //"wiki.tumblenet.ga",
-  "tumblecraft.tumblenet.ga",
   "www.tumblenet.ga",//
 ]
 
