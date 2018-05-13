@@ -3,7 +3,6 @@ const express = require('express');
 //apps
 const netlifyCmsGithubOauthProvider = require('netlify-cms-github-oauth-provider');
 //const netlifyCmsGithubOauthProvider = require('./netlify');
-const tumblenetdiscord = require('tumblenet-discord-node');
 
 //routers
 const apiRouter = require('./api.js');
@@ -16,8 +15,6 @@ app.get('/log', function (req,res,next) {
 });
 
 app.use('/api',apiRouter);
-
-app.use(tumblenetdiscord);
 
 app.use(netlifyCmsGithubOauthProvider);
 

@@ -1,3 +1,4 @@
+global.tnlog = true;
 const fs = require('fs');
 var util = require('util');
 var log_file = fs.createWriteStream(__dirname + '/log.html', {flags : 'w'});
