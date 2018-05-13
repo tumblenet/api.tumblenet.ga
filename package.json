@@ -20,8 +20,10 @@
   "dependencies": {
     "express": "^4.16.2",
     "github-api": "^3.0.0",
+    "netlify-cms-github-oauth-provider": "tumblenet/netlify-cms-github-oauth-provider",
     "request": "^2.83.0",
-    "xml2js": "^0.4.19",
-    "netlify-cms-github-oauth-provider": "tumblenet/netlify-cms-github-oauth-provider"
+    "tumblenet-discord-node": "github:tumblenet/TumbleNet-Discord-Node",
+    "webserver": "github:tumblenet/webserver",
+    "xml2js": "^0.4.19"
   }
 }
